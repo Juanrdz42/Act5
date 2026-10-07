@@ -2,7 +2,7 @@
 
 Esta aplicación fue desarrollada en SwiftUI con el objetivo de practicar el consumo de una API externa y mostrar la información obtenida dentro de una aplicación móvil.
 
-La aplicación permite explorar distintos videojuegos free-to-play. En la pantalla principal se muestra una lista de juegos con su imagen, género y plataforma. Al seleccionar uno, se puede consultar información más detallada como su descripción, fecha de lanzamiento, desarrollador, publisher, estado y algunas capturas del juego.
+La aplicación permite explorar distintos videojuegos free to play. En la pantalla principal se muestra una lista de juegos con su imagen, género y plataforma. Al seleccionar uno, se puede consultar información más detallada como su descripción, fecha de lanzamiento, desarrollador, publisher, estado y algunas capturas del juego.
 
 ## API utilizada
 
