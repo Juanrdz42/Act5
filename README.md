@@ -19,8 +19,6 @@ Endpoints utilizados:
 Documentación de la API:  
 https://www.freetogame.com/api-doc
 
-Esta API no requiere autenticación ni API key.
-
 ## Funcionalidades
 
 - Consulta de videojuegos mediante una API
@@ -42,7 +40,7 @@ Para organizar el proyecto se utilizó MVVM. Los modelos representan la informac
 3. Seleccionar un simulador de iPhone.
 4. Ejecutar la aplicación con el botón Run.
 
-Es necesario tener conexión a internet para consultar la información de FreeToGame.
+Es necesario tener conexión a internet para consultar la información del API.
 
 ## Tecnologías utilizadas
 
