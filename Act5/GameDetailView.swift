@@ -1,11 +1,13 @@
 import SwiftUI
 
+// Pantalla que consulta y presenta toda la información de un juego seleccionado.
 struct GameDetailView: View {
     let game: Game
     @State private var viewModel = GameDetailViewModel()
 
     var body: some View {
         ScrollView {
+            // Muestra progreso, error o contenido según el resultado de la petición.
             Group {
                 if viewModel.isLoading {
                     ProgressView("Loading game details...")
@@ -28,11 +30,13 @@ struct GameDetailView: View {
         .navigationTitle(game.title)
         .navigationBarTitleDisplayMode(.inline)
         .tint(.appPrimary)
+        // Solicita el detalle correspondiente cuando se abre esta pantalla.
         .task {
             await viewModel.getGameDetail(id: game.id)
         }
     }
 
+    // Organiza la imagen, datos generales, descripción, información y capturas del juego.
     private func detailContent(_ detail: GameDetail) -> some View {
         VStack(alignment: .leading, spacing: 24) {
 
@@ -165,6 +169,7 @@ struct GameDetailView: View {
         .padding(.bottom, 30)
     }
 
+    // Crea una tarjeta compacta para destacar datos como género y plataforma.
     private func infoCard(
         title: String,
         value: String,
@@ -189,6 +194,7 @@ struct GameDetailView: View {
         .clipShape(RoundedRectangle(cornerRadius: 14))
     }
 
+    // Crea una fila reutilizable para los datos adicionales del juego.
     private func informationRow(
         title: String,
         value: String,

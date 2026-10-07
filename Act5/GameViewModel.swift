@@ -1,18 +1,22 @@
 import Foundation
 
+// Gestiona el estado de la pantalla principal y obtiene el catálogo desde la API.
 @Observable
 class GameViewModel {
 
+    // Datos observables que la vista utiliza para representar sus distintos estados.
     var games = [Game]()
     var isLoading = false
     var errorMessage: String?
 
+    // Descarga y decodifica el listado, validando la respuesta y controlando errores.
     @MainActor
     func getGames() async {
 
         isLoading = true
         errorMessage = nil
 
+        // Garantiza que el indicador termine aunque la función salga por un error.
         defer {
             isLoading = false
         }

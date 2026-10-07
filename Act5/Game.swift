@@ -1,5 +1,6 @@
 import Foundation
 
+// Representa la información resumida de un juego recibida en el listado de la API.
 struct Game: Codable, Identifiable {
     let id: Int
     let title: String
@@ -11,6 +12,7 @@ struct Game: Codable, Identifiable {
     let developer: String?
     let releaseDate: String?
 
+    // Relaciona los nombres snake_case del JSON con propiedades escritas en camelCase.
     enum CodingKeys: String, CodingKey {
         case id
         case title
@@ -24,6 +26,7 @@ struct Game: Codable, Identifiable {
     }
 }
 
+// Contiene la información completa que se muestra en la pantalla de detalle.
 struct GameDetail: Codable {
     let id: Int
     let title: String
@@ -56,6 +59,7 @@ struct GameDetail: Codable {
     }
 }
 
+// Modela cada captura de pantalla asociada con un juego.
 struct Screenshot: Codable, Identifiable {
     let id: Int
     let image: String

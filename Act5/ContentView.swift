@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 
+// Define la paleta de colores compartida y adapta fondos y tarjetas al modo claro u oscuro.
 extension Color {
     static let appPrimary = Color(red: 88 / 255, green: 86 / 255, blue: 214 / 255)
     static let appSecondary = Color(red: 124 / 255, green: 111 / 255, blue: 232 / 255)
@@ -22,11 +23,14 @@ extension Color {
     )
 }
 
+// Pantalla principal que carga, muestra y permite seleccionar los juegos disponibles.
 struct ContentView: View {
+    // Conserva el estado de la carga, la lista de juegos y los posibles errores.
     @State private var viewModel = GameViewModel()
 
     var body: some View {
         NavigationStack {
+            // Cambia el contenido según el estado actual de la petición.
             Group {
                 if viewModel.isLoading {
                     ProgressView("Loading games...")
@@ -40,6 +44,7 @@ struct ContentView: View {
 
                 } else {
                     ScrollView {
+                        // Presenta el encabezado y crea las tarjetas solo cuando aparecen en pantalla.
                         LazyVStack(spacing: 18) {
                             VStack(alignment: .leading, spacing: 6) {
                                 Text("Game Explorer")
@@ -78,11 +83,13 @@ struct ContentView: View {
             .toolbarBackground(.visible, for: .navigationBar)
         }
         .tint(.appPrimary)
+        // Inicia la descarga de juegos cuando la vista aparece.
         .task {
             await viewModel.getGames()
         }
     }
 
+    // Construye la tarjeta reutilizable con imagen y datos básicos de cada juego.
     private func gameCard(_ game: Game) -> some View {
         VStack(alignment: .leading, spacing: 12) {
 

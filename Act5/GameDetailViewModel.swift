@@ -1,18 +1,22 @@
 import Foundation
 
+// Aquí guardamos y obtenemos toda la información del juego seleccionado.
 @Observable
 class GameDetailViewModel {
 
+    // Estas variables se actualizan según lo que pase con la petición.
     var gameDetail: GameDetail?
     var isLoading = false
     var errorMessage: String?
 
+    // Pedimos los detalles del juego a la API usando su id.
     @MainActor
     func getGameDetail(id: Int) async {
 
         isLoading = true
         errorMessage = nil
 
+        // Al terminar, quitamos la pantalla de carga aunque haya ocurrido un error.
         defer {
             isLoading = false
         }
